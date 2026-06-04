@@ -154,6 +154,27 @@ function EditResume() {
       </a>
     </>
   )}
+{userData.additionalLink && (
+  <>
+    {(userData.linkedin || userData.github || userData.portfolio) && (
+      <span> | </span>
+    )}
+    <a
+      href={
+        userData.additionalLink.startsWith("http")
+          ? userData.additionalLink
+          : `https://${userData.additionalLink}`
+      }
+      target="_blank"
+      rel="noreferrer"
+    >
+      {userData.additionalLink}
+    </a>
+    
+  </>
+)}
+
+
 </div>
             </div>
 

@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
 import Header from '../components/header'
-import './home.css'
 
+import './home.css'
+import Footer from '../components/Footer'
 export default function Home() {
   return (
     <div className="home-page">
@@ -16,6 +17,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }

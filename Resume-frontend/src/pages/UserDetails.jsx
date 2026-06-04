@@ -44,6 +44,27 @@ export default function UserDetails({ userData, setUserData, handleUserSave }) {
         <input type="text" placeholder="e.g. Software Engineer" value={userData.jobTitle} onChange={update('jobTitle')} />
       </div>
 
+<div className="form-group">
+  <label>LinkedIn Profile</label>
+  <input
+    type="text"
+    placeholder="https://linkedin.com/in/yourprofile"
+    value={userData.linkedin || ''}
+    onChange={update('linkedin')}
+  />
+</div>
+
+<div className="form-group">
+  <label>GitHub Profile</label>
+  <input
+    type="text"
+    placeholder="https://github.com/yourusername"
+    value={userData.github || ''}
+    onChange={update('github')}
+  />
+</div>
+
+
       <div className="form-group">
         <label>Professional Summary</label>
         <textarea rows="3" placeholder="Brief professional summary..." value={userData.summary} onChange={update('summary')} />
@@ -130,6 +151,11 @@ export default function UserDetails({ userData, setUserData, handleUserSave }) {
         <input placeholder="Achievements / Awards" value={userData.achievements} onChange={update('achievements')} />
         <input placeholder="Hobbies & Interests" value={userData.hobbies} onChange={update('hobbies')} />
         <input placeholder="Portfolio URL" value={userData.portfolio} onChange={update('portfolio')} />
+        <input
+  placeholder="Additional Link"
+  value={userData.additionalLink || ''}
+  onChange={update('additionalLink')}
+/>
       </div>
 
       <button className="save-btn-user" onClick={handleUserSave}>

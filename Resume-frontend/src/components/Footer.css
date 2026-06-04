@@ -1,0 +1,181 @@
+.footer {
+  position: relative;
+  margin-top: 30px;
+  padding: 5px 5px;
+  background:linear-gradient(135deg, #fff8f8, #000000, #000000, #ffffff);
+  overflow: hidden;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  background: linear-gradient(
+    90deg,
+    #eaf2ff,
+    #8b5cf6,
+    #ec4899,
+    #3b82f6
+  );
+  background-size: 300% 300%;
+  animation: borderMove 8s linear infinite;
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.footer-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+.footer-quote {
+  font-size: 1.05rem;
+  color: white;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin-bottom: 25px;
+  min-height: 30px;
+
+  animation: quoteFade 0.5s ease;
+}
+
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  margin-bottom: 20px;
+}
+
+.footer-socials a {
+  width: 58px;
+  height: 58px;
+
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  transition: all 0.35s ease;
+
+  position: relative;
+}
+
+.footer-socials a::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+
+  border-radius: inherit;
+
+  background: linear-gradient(
+    135deg,
+    #3b82f6,
+    #8b5cf6,
+    #ec4899
+  );
+
+  opacity: 0;
+  z-index: -1;
+
+  transition: 0.4s;
+}
+
+.footer-socials a:hover::before {
+  opacity: 1;
+}
+
+.footer-socials a:hover {
+  transform: translateY(-8px) scale(1.1);
+  box-shadow:
+    0 15px 35px rgba(59,130,246,0.25),
+    0 0 20px rgba(139,92,246,0.25);
+}
+
+.footer-socials img {
+  width: 24px;
+  height: 24px;
+  filter: invert(1);
+}
+
+.footer-copy {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+.footer-copy::before {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 2px;
+  margin: 0 auto 15px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #8b5cf6,
+    transparent
+  );
+}
+
+@keyframes borderMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 300% 50%;
+  }
+}
+
+@keyframes quoteFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 1px 1px;
+  }
+
+  .footer-quote {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .footer-socials {
+    gap: 15px;
+  }
+
+  .footer-socials a {
+    width: 50px;
+    height: 50px;
+  }
+
+  .footer-socials img {
+    width: 20px;
+    height: 20px;
+  }
+}

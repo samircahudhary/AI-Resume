@@ -1,5 +1,6 @@
 const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY
-const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${GEMINI_API_KEY}`
+const GEMINI_URL =
+  `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`
 
 async function callGemini(prompt) {
   const response = await fetch(GEMINI_URL, {
@@ -12,6 +13,8 @@ async function callGemini(prompt) {
   const data = await response.json()
   return data.candidates?.[0]?.content?.parts?.[0]?.text || ''
 }
+
+
 
 // Get AI suggestions for a specific resume section
 export async function getAISuggestion(section, currentValue, jobTitle) {
@@ -26,6 +29,8 @@ export async function getAISuggestion(section, currentValue, jobTitle) {
 
   return callGemini(prompt)
 }
+
+
 
 // Calculate ATS score for the resume
 export async function getATSScore(resumeData) {

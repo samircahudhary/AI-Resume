@@ -5,6 +5,7 @@ import Header from '../components/header'
 import AddResume from '../components/AddResume'
 import API from '../services/api'
 import './dashboard.css'
+import Footer from '../components/Footer'
 
 export default function Dashboard() {
   const { user } = useUser()
@@ -117,6 +118,7 @@ export default function Dashboard() {
           )}
         </div>
       </div>
+      <Footer />
     </div>
   )
 }
