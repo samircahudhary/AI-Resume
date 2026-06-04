@@ -1,0 +1,112 @@
+.resume-container { display: inline-block; }
+
+.notepad-card {
+  width: 240px;
+  height: 280px;
+  background: white;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  transition: transform 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+  border: 2px dashed #c7c2ff;
+}
+
+.notepad-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(108,99,255,0.2);
+  border-color: #6c63ff;
+}
+
+.notepad-header {
+  background: #f0eeff;
+  padding: 10px 14px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+}
+.dot.red { background: #ff5f56; }
+.dot.yellow { background: #ffbd2e; }
+.dot.green { background: #27c93f; }
+
+.paper {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.paper h2 { color: #6c63ff; font-size: 1rem; margin: 0; }
+.line { height: 2px; width: 100%; background: #eee; border-radius: 2px; }
+.line.short { width: 60%; }
+.plus-circle {
+  width: 48px; height: 48px;
+  background: #6c63ff;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-size: 1.8rem; margin: 8px 0;
+}
+.paper p { color: #999; font-size: 0.85rem; text-align: center; margin: 0; }
+
+/* Modal */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 1000;
+}
+
+.modal-box {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  width: 400px;
+  max-width: 90vw;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
+
+.modal-box h3 {
+  margin: 0 0 20px;
+  color: #333;
+  font-size: 1.3rem;
+}
+
+.resume-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e0dcff;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.resume-input:focus { border-color: #6c63ff; }
+
+.modal-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.cancel-btn, .create-btn {
+  flex: 1; padding: 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.cancel-btn { background: #f5f5f5; color: #666; }
+.cancel-btn:hover { background: #eee; }
+.create-btn { background: #6c63ff; color: white; }
+.create-btn:hover { background: #3b34c7; }

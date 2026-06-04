@@ -1,0 +1,48 @@
+.ai-suggestion-wrapper { margin-top: 4px; }
+
+.ai-btn {
+  background: linear-gradient(135deg, #6c63ff, #a29bfe);
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.ai-btn:hover:not(:disabled) { opacity: 0.85; }
+.ai-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.suggestion-box {
+  margin-top: 8px;
+  background: #f0eeff;
+  border: 1px solid #c7c2ff;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.suggestion-text {
+  margin: 0 0 10px;
+  font-size: 0.85rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+.suggestion-actions { display: flex; gap: 8px; }
+
+.apply-btn, .dismiss-btn {
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.apply-btn { background: #6c63ff; color: white; }
+.apply-btn:hover { background: #3b34c7; }
+.dismiss-btn { background: #e0dcff; color: #6c63ff; }
+.dismiss-btn:hover { background: #d0ccff; }
