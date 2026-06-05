@@ -3,29 +3,44 @@ import './Footer.css'
 
 export default function Footer() {
   const quotes = [
-    "Dream big, code bigger, and debug later.-",
-    "Every expert was once a beginner who refused to quit.",
-    "Coffee, code, gym, repeat until success appears.",
-    "Talent starts the race; consistency wins it."
-  ]
+  "Dream big, code bigger, and debug later.",
+  "Every expert was once a beginner who refused to quit.",
+  "Coffee, code, gym, repeat until success appears.",
+  "Talent starts the race; consistency wins it."
+]
 
-  const [quoteIndex, setQuoteIndex] = useState(0)
+const [quoteIndex, setQuoteIndex] = useState(0)
+const [displayText, setDisplayText] = useState("")
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setQuoteIndex((prev) => (prev + 1) % quotes.length)
-    }, 4000)
+useEffect(() => {
+  let charIndex = 0
+  const currentQuote = quotes[quoteIndex]
 
-    return () => clearInterval(interval)
-  }, [])
+  setDisplayText("")
 
+  const typing = setInterval(() => {
+    setDisplayText(currentQuote.slice(0, charIndex + 1))
+    charIndex++
+
+    if (charIndex === currentQuote.length) {
+      clearInterval(typing)
+
+      setTimeout(() => {
+        setQuoteIndex((prev) => (prev + 1) % quotes.length)
+      }, 2000) // wait before next quote
+    }
+  }, 60) // typing speed
+
+  return () => clearInterval(typing)
+}, [quoteIndex])
   return (
     <footer className="footer">
       <div className="footer-content">
 
         <p className="footer-quote">
-          "{quotes[quoteIndex]}"
-        </p>
+  "{displayText}"
+  <span className="cursor">|</span>
+</p>
 
         <div className="footer-socials">
 

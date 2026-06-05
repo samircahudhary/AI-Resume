@@ -38,14 +38,22 @@
 }
 
 .footer-quote {
-  font-size: 1.05rem;
-  color: white;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  margin-bottom: 25px;
-  min-height: 30px;
+  font-size: 1.15rem;
+  color: #111112;
+  font-weight: 700;
+  min-height: 35px;
+  line-height: 1.6;
+}
 
-  animation: quoteFade 0.5s ease;
+.cursor {
+  display: inline-block;
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
 }
 
 .footer-socials {
@@ -84,8 +92,8 @@
 
   background: linear-gradient(
     135deg,
-    #3b82f6,
-    #8b5cf6,
+    #15ccff,
+    #ff23f0,
     #ec4899
   );
 
