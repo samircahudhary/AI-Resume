@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import { UserButton, useUser } from '@clerk/clerk-react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useClerkUser, ClerkUserButton } from './ClerkWrapper.jsx'
 import './header.css'
 
 const Header = () => {
   const [isMobileOpen, setIsMobileOpen] = useState(false)
-  const { isSignedIn } = useUser()
+  const { isSignedIn } = useClerkUser()
   const navigate = useNavigate()
 
   return (
@@ -32,7 +32,7 @@ const Header = () => {
 
         <div className="header-cta">
           {isSignedIn ? (
-            <UserButton afterSignOutUrl="/" />
+            <ClerkUserButton afterSignOutUrl="/" />
           ) : (
             <Link to="/auth/sign-in" className="cta-button">Get Started</Link>
           )}
