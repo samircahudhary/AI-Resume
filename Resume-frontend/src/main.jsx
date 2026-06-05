@@ -13,6 +13,10 @@ import SelectTemplate from './pages/SelectTemplate.jsx'
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 
+if (!PUBLISHABLE_KEY) {
+  console.warn('[v0] Clerk Publishable Key not found. Add VITE_CLERK_PUBLISHABLE_KEY to your environment variables. Authentication features will be disabled.')
+}
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -57,21 +61,10 @@ const router = createBrowserRouter([
   },
 ])
 
-const root = createRoot(document.getElementById('root'))
-
-if (PUBLISHABLE_KEY) {
-  root.render(
-    <StrictMode>
-      <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
-        <RouterProvider router={router} />
-      </ClerkProvider>
-    </StrictMode>
-  )
-} else {
-  console.warn('[v0] Clerk Publishable Key not found. Add VITE_CLERK_PUBLISHABLE_KEY to your .env.local file.')
-  root.render(
-    <StrictMode>
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <ClerkProvider publishableKey={PUBLISHABLE_KEY || ''}>
       <RouterProvider router={router} />
-    </StrictMode>
-  )
-}
+    </ClerkProvider>
+  </StrictMode>
+)
