@@ -1,12 +1,23 @@
-FROM eclipse-temurin:21-jdk
+# Build stage
+FROM eclipse-temurin:17-jdk AS builder
+
+RUN apt-get update && apt-get install -y maven && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
-COPY . .
+COPY pom.xml .
+RUN mvn dependency:go-offline -B
 
-RUN chmod +x mvnw || true
-RUN ./mvnw clean package -DskipTests || mvn clean package -DskipTests
+COPY src ./src
+RUN mvn clean package -DskipTests
+
+# Run stage
+FROM eclipse-temurin:17-jre
+
+WORKDIR /app
+
+COPY --from=builder /app/target/*.jar app.jar
 
 EXPOSE 8080
 
-CMD ["sh", "-c", "java -jar target/*.jar"]
+CMD ["java", "-jar", "app.jar"]
