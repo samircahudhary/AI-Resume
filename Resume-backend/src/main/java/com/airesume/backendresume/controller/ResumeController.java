@@ -10,13 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/resumes")
-@CrossOrigin(origins = {
-    "http://localhost:5173",
-    "http://localhost:5174",
-    "http://localhost:3000",
-    "https://ai-resume-bszzlub1t-samircahudharys-projects.vercel.app"
-    "https://samresumeaii.netlify.app"
-})
+
 public class ResumeController {
 
     private final ResumeRepository repository;
