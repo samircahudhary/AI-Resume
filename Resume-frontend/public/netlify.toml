@@ -1,0 +1,4 @@
+[build]
+  base = "Resume-frontend"
+  command = "npm install --include=optional && npm run build"
+  publish = "Resume-frontend/dist"
