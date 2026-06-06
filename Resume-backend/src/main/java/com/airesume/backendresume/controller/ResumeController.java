@@ -15,6 +15,7 @@ import java.util.List;
     "http://localhost:5174",
     "http://localhost:3000",
     "https://ai-resume-bszzlub1t-samircahudharys-projects.vercel.app"
+    "https://samresumeaii.netlify.app"
 })
 public class ResumeController {
 
